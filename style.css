@@ -3,13 +3,22 @@
     --brand: #20AD96;
     --brand-dark: #028176;        
     --brand-light: #F3FFFD;
+
+    --bg: #ffffff;
+    --bg-soft: #f6f6f6;
+
     --title: #333333;
-    --text: #666666;    
+    --text: #666666;
+
+    --shadow-light: 2px 2px 5px #EEE;
+    --shadow-card: 2px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 body{
     margin: 0;
-    font-family: "Poppins", sans-serif;    
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 img{
@@ -33,9 +42,8 @@ h3{
 
 p{    
     color: var(--text);
-    line-height: 150%; /*altura da linha*/
+    line-height: 150%;
 }
-
 
 .text-brand{
     color: var(--brand);
@@ -44,16 +52,11 @@ p{
 .etiqueta{
     color: var(--brand);
     font-size: 14px;
-    border: 1px solid var(--brand); /*tamanho, estilo, cor*/
+    border: 1px solid var(--brand);
     border-radius: 30px;
     padding: 8px 28px;
-
     display: inline-block;
     margin-bottom: 20px;
-
-    /*border-style: solid;
-    border-width: 1px;
-    border-color: var(--brand);*/
     line-height: 100%;
 }
 
@@ -62,38 +65,24 @@ p{
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
-
-    /*Sombra -> Horizontal, Vertical, Suavidade, Cor*/
-    box-shadow: 2px 2px 5px #EEE;
-
-    background-color: #ffffff;
-    position: sticky; /*posição fixa somente após a rolagem*/
+    box-shadow: var(--shadow-light);
+    background-color: var(--bg);
+    position: sticky;
     top: 0;
-    z-index: 1; /*quando maior o valor, mas a frente o elemento estará posicionado*/
+    z-index: 1;
 }
 
 .container{
-    
-    /*width: 100%;
-    max-width: 1164px; /*1164 - 24 = 1140*/
-    /*padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box; /*faz com que padding/border não somem espaço as dimensões*/
-    
     width: calc(100% - 24px);
     max-width: 1140px;
-
-    /*centraliza o container*/
     margin-left: auto;
     margin-right: auto;        
 }
 
-
-/*formatando o container que está DENTRO do header*/
 .header .container{
     display: flex;
-    justify-content: space-between; /*alinhamento horizontal*/
-    align-items: center; /*alinhamento vertical*/
+    justify-content: space-between;
+    align-items: center;
 }
 
 .menu{    
@@ -102,15 +91,12 @@ p{
     column-gap: 40px;
 }
 
-/*Formatando os links do menu*/
 .menu a{
     font-size: 14px;
     color: var(--title);
-    text-decoration: none;
-    /*margin-right: 40px;*/        
+    text-decoration: none;       
 }
 
-/*passar o mouse*/
 .menu a:hover{
     color: var(--brand);
 }
@@ -118,13 +104,12 @@ p{
 .btn{
     background-color: var(--brand);
     color: #ffffff;
-    border: none; /*removendo a borda*/
+    border: none;
     border-radius: 10px;    
     font-size: 16px;
-    padding: 12px 30px; /*top/bottom... left/right*/
-    /*padding: 12px 30px 12px 30px; /*top right bottom left*/
-    text-decoration: none; /*retira o sublinhado*/
-    cursor: pointer; /*altera o estilo do ponteiro do mouse no elemento*/    
+    padding: 12px 30px;
+    text-decoration: none;
+    cursor: pointer;
     display: inline-block;
 }
 
@@ -163,7 +148,7 @@ p{
 .apresentacao{
     display: flex;
     align-items: center;
-    column-gap: 24px; /*espaçamento entre as colunas do flex*/
+    column-gap: 24px;
     margin-bottom: 100px;
 }
 
@@ -172,14 +157,14 @@ p{
 }
 
 .content-servicos{
-    max-width: 752px; /*largura máxima*/
+    max-width: 752px;
     margin-left: auto;
     margin-right: auto;    
 }
 
 .flex-cards{
     display: flex;
-    flex-wrap: wrap; /*permitindo multiplas linhas*/
+    flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
 }
@@ -187,50 +172,44 @@ p{
 .card{
     max-width: 364px;
     height: 200px;
-    /*sombra horizontal, vertical, suavidade,  cor*/
-    box-shadow: 2px 2px 10px  rgba(0, 0, 0, 0.25);
+    background-color: var(--bg);
+    box-shadow: var(--shadow-card);
     border-radius: 5px;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    /*aplica alterações no card em 0.3 segundos*/
     transition: 0.3s;
 }
 
-/*ao passar o mouse no card*/
 .card:hover{
     background-image: linear-gradient(to right,var(--brand), var(--brand-dark));
     transform: scale(1.03);
 }
 
-/*formatando h3 e p quando o mouse estiver em cima do card*/
-.card:hover h3, .card:hover p{
+.card:hover h3,
+.card:hover p{
     color: #ffffff;
 }
 
 .agende{
     background-image: linear-gradient(to right,var(--brand), var(--brand-dark));
-    margin: 100px 0; /*vertical, horizontal*/
+    margin: 100px 0;
 }
 
 .agende .container{
     display: flex;
     justify-content: flex-end;
-    
     position: relative;
     padding-top: 54px;
     padding-bottom: 54px;
 }
 
-.agende h2, .agende p{
+.agende h2,
+.agende p{
     color: #ffffff;
 }
 
 .image-agende{
-    /*posição em relação ao elemento PAI (desde que ele tenha position)
-    caso contrário, será em relação ao body*/
     position: absolute;
     bottom: 0;
     left: 0;
@@ -238,11 +217,10 @@ p{
 
 .content-agende{
     max-width: 850px;
-    width: calc(100% - 270px); /*a largura será o cálculo de 100% - o tamanho da imagem*/
+    width: calc(100% - 270px);
 }
 
 .btn-whatsapp{
-    /*posição em relação a tela*/
     position: fixed; 
     bottom: 10px;
     right: 10px;
@@ -271,11 +249,10 @@ p{
     font-weight: 600;
 }
 
-/*Alterando a cor dos botões do swiper*/
-.swiper-button-next, .swiper-button-prev{
+.swiper-button-next,
+.swiper-button-prev{
     color: var(--brand);
 }
-
 
 .contato{
     display: flex;
@@ -286,9 +263,8 @@ p{
 .contato ul{
     color: var(--text);
     padding: 0;
-    list-style-position: inside; /*alterando a posição do marcador*/
-    list-style-type: disc; /*alterando o estilo do marcador
-    /*list-style-image: url(../img/check.png);*/
+    list-style-position: inside;
+    list-style-type: disc;
 }
 
 .contato h2{
@@ -313,26 +289,17 @@ p{
     column-gap: 20px;
 }
 
-
 .app{
     display: none;
 }
 
-/*
-Media Queries (condições)
-Para telas de 0 a 1279px
-*/
-
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media (max-width: 1279px){
-    
-    h2{
-        font-size: 28px;
-    }
-
-    h3{
-        font-size: 20px;
-    }
+    h2{ font-size: 28px; }
+    h3{ font-size: 20px; }
 
     .menu{
         transform: translateX(-100%);
@@ -342,20 +309,18 @@ Para telas de 0 a 1279px
         left: 0;
         top: 97px;
         width: 100%;
-        flex-direction: column;   
+        flex-direction: column;
         transition: 0.3s;
     }
 
-    .menu-open{
-        transform: translateX(0);
-    }
+    .menu-open{ transform: translateX(0); }
 
-    .menu a{        
+    .menu a{
         width: 100%;
         padding: 20px 12px;
         box-sizing: border-box;
         border-bottom: 1px solid var(--brand-light);
-        color: var(--brand-light);        
+        color: var(--brand-light);
     }
 
     .menu a:hover{
@@ -369,7 +334,7 @@ Para telas de 0 a 1279px
         border-radius: 0;
         padding: 20px 12px;
     }
-     
+
     .btn-menu{
         display: flex;
         flex-direction: column;
@@ -379,25 +344,21 @@ Para telas de 0 a 1279px
     .bar{
         width: 40px;
         height: 3px;
-        background-color: var(--brand);   
+        background-color: var(--brand);
         transition: 0.3s;
     }
 
-    /*Formatando as barras quando a classe x existir*/
-    /*Quando a classe bar for a primeira filha*/
     .x .bar:first-child{
         transform: rotate(45deg) translate(3px, 0);
     }
 
-    /*selecionando a bar de número 2*/
     .x .bar:nth-child(2){
         opacity: 0;
         transform: translateX(-200px);
     }
 
-    /*selecionando a bar que for a última filha*/
     .x .bar:last-child{
-        transform: rotate(-45deg) translate(9px,-5px); /*x, y*/
+        transform: rotate(-45deg) translate(9px,-5px);
     }
 
     .hero{
@@ -407,72 +368,77 @@ Para telas de 0 a 1279px
         padding-bottom: 36px;
     }
 
-    .image-hero img{
-        max-width: 100%; /*largua máxima de 454px*/
-    }
-
-    .content-hero h1{
-        font-size: 36px;
-    }
-
-    .content-hero-subtitle{
-        font-size: 16px;
-    }
+    .content-hero h1{ font-size: 36px; }
+    .content-hero-subtitle{ font-size: 16px; }
 
     .apresentacao{
         flex-direction: column;
         row-gap: 36px;
     }
 
-    .image-apresentacao img{
-        max-width: 100%;
-    }
+    .app{ display: inline-block; }
 
-    .app{
-        display: inline-block;
-    }
-        
-    .depoimentos p{
-        font-size: 16px;
-    }
+    .depoimentos p{ font-size: 16px; }
 
     .contato{
         flex-direction: column;
         row-gap: 36px;
     }
-    
-    .content-mapa{        
-        width: 100%;
-    }
 
+    .content-mapa,
     .contato iframe{
         width: 100%;
     }
 
-    .btn-whatsapp{
-        bottom: 100px;
-    }    
-
+    .btn-whatsapp{ bottom: 100px; }
 }
 
-
 @media (max-width: 767px){
+    .image-agende{ display: none; }
+    .content-agende{ width: 100%; }
 
-    .image-agende{
-        display: none;
-    }
-
-    .content-agende{
-        width: 100%;
-    }
-
-    .footer-text{
-        text-align: center;
-    }
+    .footer-text{ text-align: center; }
 
     .footer .container{
         flex-direction: column;
         row-gap: 20px;
     }
+}
 
+/* =========================
+   DARK MODE AUTOMÁTICO
+========================= */
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --bg: #121212;
+        --bg-soft: #1e1e1e;
+        --title: #ffffff;
+        --text: #cccccc;
+        --shadow-light: 2px 2px 10px rgba(0,0,0,.6);
+        --shadow-card: 2px 2px 15px rgba(0,0,0,.7);
+    }
+
+    body{
+        background-color: var(--bg);
+    }
+
+    .header{
+        background-color: var(--bg);
+    }
+
+    .card{
+        background-color: var(--bg-soft);
+    }
+
+    @media (max-width: 1279px){
+        .menu{
+            background-color: rgba(18,18,18,0.9);
+        }
+
+        .menu a{
+            color: #ffffff;
+            border-bottom: 1px solid #333;
+        }
+    }
 }
